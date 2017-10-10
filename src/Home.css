@@ -46,7 +46,7 @@ h1 {
     color: gray;
 }
 
-/*
+
 
 .atras {
     padding-top: 1.6em;
@@ -116,7 +116,6 @@ a {
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-Mapa*/
 
 * {
     margin: 0;
