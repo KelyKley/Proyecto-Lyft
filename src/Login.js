@@ -29,7 +29,7 @@ const Login = ( {model} ) => {
     </div>
   </div>
   <hr />
-  <form action="registro2.html">
+  <form action="">
     <div className="text-center col-md-6 col-xs-12 row">
       <div className="input-group input-group-lg">
         <span className="input-group-addon" id="sizing-addon1">
@@ -50,7 +50,7 @@ const Login = ( {model} ) => {
     <br />
 
     <div className="col-md-6 col-xs-12">
-		  <NavLink to={"/signup"}className="btn btn-lyft btn-lg btn-block">Next</NavLink>
+		  <NavLink to={"/lyftmap"}className="btn btn-lyft btn-lg btn-block next">Next</NavLink>
     </div>
   </form>
 </div>
