@@ -50,15 +50,22 @@ class SendCode extends Component {
 			}
 		};
 		return (
-			<div>
-				<header className="text-center">
-					<div className="back">
-						<i className="fa fa-angle-left fa-3x" aria-hidden="true" />
-					</div>
-					<h1> Sign up </h1>
-					<h4> Join now for free ride credit </h4>
-					<hr />
-				</header>
+			<div className="container-fluid">
+				<div className="row text-center head">
+				<div className="col-xs-12 col-md-12">
+				<div className="col-xs-2 col-md-2 atras">
+				<a href="javascript:window.history.back();">
+						<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+				</a>
+					
+				</div>
+				<div className="col-xs-8 col-md-8">
+					<h1>Confirm Code</h1>
+					<h5 className="text-center"> Join now for free ride credit</h5>
+				</div>
+				</div>
+			</div>
+			<hr />
 				<section className="container signUp-phone">
 					<h3>Tu codigo: </h3>
 					<h5>LAB - {this.state.codeNumber}</h5>
