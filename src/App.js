@@ -27,7 +27,7 @@ const App = (props) => {
 			<Switch>
 				<Route exact path="/"
 				    render={() => <Redirect to= {'/home'}/>}/>
-				<Route exact path="/Proyecto-Lyft"
+				<Route path="/Proyecto-Lyft"
 					render={() => <Redirect to= {'/home'}/>}/>
 				<Route  path="/home" render={() => <Home model={model} />}/>
 				<Route  path="/signup" render={() => <SignUp model={model} />}/>
