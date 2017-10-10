@@ -33,7 +33,7 @@ const App = (props) => {
 				<Route  path="/signup" render={() => <SignUp model={model} />}/>
 				<Route  path="/signup-form" render={() => <SignUpForm model={model} />}/>
 				<Route  path="/lyftmap" render={() => <LyftMap model={model} />}/>
-				<Route component={NotFound}/>
+				<Route component={Home}/>
 			</Switch>
 		</div>
 	</BrowserRouter>)
