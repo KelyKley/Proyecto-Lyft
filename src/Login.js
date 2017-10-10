@@ -49,7 +49,7 @@ const Login = ( {model} ) => {
     <hr />
     <br />
 
-    <div className="col-md-6 col-xs-12">
+    <div className="col-md-12 col-xs-12">
 		  <NavLink to={"/lyftmap"}className="btn btn-lyft btn-lg btn-block next">Next</NavLink>
     </div>
   </form>

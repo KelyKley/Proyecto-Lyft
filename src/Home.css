@@ -9,6 +9,39 @@
     position: relative;
 }
 
+@media  (max-width:1024px){
+    #portada{
+        background-image: url(./fondo2.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+}
+@media (min-width:511px) and (max-width: 844px){
+
+    #portada{
+        background-image: url(./fondo3.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+  
+}
+@media (min-width:300px) and (max-width: 510px){
+
+    #portada{
+        background-image: url(./fondo1.png);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+  
+}
+
+
 h1 {
     font-size: 36px;
     text-align: center;
@@ -19,7 +52,7 @@ h1 {
 #registro h1 {
     font-size: 36px;
     text-align: center;
-    padding-top: 0px;
+    padding-top: 10px;
 }
 
 .botones {

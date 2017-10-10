@@ -6,7 +6,8 @@ import {
 	Switch,
 	NavLink,
 	Redirect
-} from 'react-router-dom'
+} from 'react-router-dom';
+import './SignUp.css';
 
 class SignUpForm extends Component {
 
@@ -28,22 +29,23 @@ class SignUpForm extends Component {
 		}
 
 		return (
-			<div>
-				<header>
-					<nav className="navbar navbar-light text-center">
-						<a href="javascript:window.history.back();">
-							<i
-								className="fa fa-angle-left fa-3x"
-								aria-hidden="true" />
-						</a>
-						<div className="navbar-brand">
-							<h3>
-								Sign Up Form
-							</h3>
+			<div className="container-fluid">
+				<div className="row text-center head">
+					<div className="col-xs-12 col-md-12">
+					<div className="col-xs-2 col-md-2 atras">
+					<a href="javascript:window.history.back();">
+							<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+					</a>
+						
+					</div>
+					<div className="col-xs-8 col-md-8">
+						<h1>Sign Up Form</h1>
+						<h5 className="text-center"> Join now for free ride credit</h5>
+					</div>
+					</div>
+				</div>
+				<hr />
 
-						</div>
-					</nav>
-				</header>
 				<section className="container-fluid form">
 
 					<label className="form-check-label">

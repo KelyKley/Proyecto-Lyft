@@ -9,3 +9,9 @@
 .signUp-phone{
   margin-bottom: 50px;
 }
+
+.head  h1 {
+  font-size: 36px;
+  text-align: center;
+  padding-top: 10px;
+}
