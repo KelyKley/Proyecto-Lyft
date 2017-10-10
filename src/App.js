@@ -26,13 +26,13 @@ const App = (props) => {
 		<div>
 			<Switch>
 				<Route exact path="/"
-				       render={() => <Redirect to= {'/home'}/>}/>
+				    render={() => <Redirect to= {'/home'}/>}/>
+				<Route exact path="/Proyecto-Lyft"
+					render={() => <Redirect to= {'/home'}/>}/>
 				<Route  path="/home" render={() => <Home model={model} />}/>
 				<Route  path="/signup" render={() => <SignUp model={model} />}/>
 				<Route  path="/signup-form" render={() => <SignUpForm model={model} />}/>
-
 				<Route  path="/lyftmap" render={() => <LyftMap model={model} />}/>
-
 				<Route component={NotFound}/>
 			</Switch>
 		</div>
