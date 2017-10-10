@@ -9,8 +9,9 @@ import {
 import './App.css';
 
 import Home from './Home';
+import Login from "./Login";
 import SignUp from './SignUp';
-import Login from "./Login"
+import SendCode from "./SendCode"
 import SignUpForm from './SignUpForm';
 import LyftMap from './LyftMap';
 
@@ -31,8 +32,9 @@ const App = (props) => {
 				<Route path="/Proyecto-Lyft"
 					render={() => <Redirect to= {'/home'}/>}/>
 				<Route  path="/home" render={() => <Home model={model} />}/>
-				<Route  path="/signup" render={() => <SignUp model={model} />}/>
 				<Route  path="/login" render={() => <Login model={model} />}/>
+				<Route  path="/signup" render={() => <SignUp model={model} />}/>
+				<Route  path="/send-code" render={() => <SendCode model={model} />}/>
 				<Route  path="/signup-form" render={() => <SignUpForm model={model} />}/>
 				<Route  path="/lyftmap" render={() => <LyftMap model={model} />}/>
 				<Route component={NotFound}/>
