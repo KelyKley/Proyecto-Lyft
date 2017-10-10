@@ -30,8 +30,9 @@ const Login = ( {model} ) => {
   </div>
   <hr />
   <form action="">
-    <div className="text-center col-md-6 col-xs-12 row">
-      <div className="input-group input-group-lg">
+    <div className="text-center  row">
+    <div className="col-md-3 col-xs-1"></div>
+      <div className="input-group input-group-lg col-md-6 col-xs-10">
         <span className="input-group-addon" id="sizing-addon1">
           <i className="fa fa-phone" aria-hidden="true" />
         </span>
@@ -39,6 +40,7 @@ const Login = ( {model} ) => {
           type="tel" className="form-control" placeholder="Enter your phone number" aria-describedby="sizing-addon1"
           id="phone" pattern="^\d{3}\d{3}\d{3}$" required="" />
       </div>
+      <div className="col-md-3 col-xs-1"></div>
     </div>
 
     <br />
@@ -50,7 +52,11 @@ const Login = ( {model} ) => {
     <br />
 
     <div className="col-md-12 col-xs-12">
+    <div className="col-md-4"></div>
+        <div className="col-md-4">
 		  <NavLink to={"/lyftmap"}className="btn btn-lyft btn-lg btn-block next">Next</NavLink>
+          </div>
+          <div className="col-md-4"></div>
     </div>
   </form>
 </div>
