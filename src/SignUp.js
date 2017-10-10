@@ -21,7 +21,8 @@ class SignUp extends Component {
 			selectValue: 'Perú',
 			flag: this.flag[0],
 			code: this.code[0],
-			phone: ""
+			phone: "",
+			activeNext: false,
 		}
 	}
 
@@ -33,7 +34,6 @@ class SignUp extends Component {
 				selectValue: e.target.value,
 				flag: this.flag[index],
 				code: this.code[index],
-				activeNext: false,
 			});
 		};
 		const validatePhone = (e) => {
@@ -85,12 +85,11 @@ class SignUp extends Component {
 				{
 				this.state.activeNext ?
 					<NavLink
-						to={"/signup-form"}
+						to={"/send-code"}
 						className="btn btn-lg btn-block btn-lyft">Next</NavLink>
 					:
 					<button
 						className="btn btn-lg btn-block btn-lyft disabled">Next</button>
-
 				}
 			</div>
 		);
