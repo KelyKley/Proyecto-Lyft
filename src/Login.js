@@ -76,9 +76,9 @@ class Login extends Component {
                 <Col md={3}></Col>
                 <Col xs={12} md={6}>
                   <InputGroup>
+
                     <FormControl
                       componentClass="select"
-                      placeholder="Type"
                       onChange={handleChange}
                       value={this.state.selectValue}
                     >
@@ -91,6 +91,7 @@ class Login extends Component {
                         );
                       })}
                     </FormControl>
+                    
                     <InputGroup.Addon>{this.state.code}</InputGroup.Addon>
                     <FormControl
                       type="tel"
@@ -106,11 +107,11 @@ class Login extends Component {
           </div>
         </section>
         {this.state.activeNext ? (
-          <NavLink to={"/lyftmap"} className="btn btn-lg btn-block btn-lyft">
+          <NavLink to={"/lyftmap"} className="btn-next btn btn-lg btn-block btn-lyft">
             Next
           </NavLink>
         ) : (
-          <button className="btn btn-lg btn-block btn-lyft disabled">
+          <button className="btn-next btn btn-lg btn-block btn-lyft disabled">
             Next
           </button>
         )}
