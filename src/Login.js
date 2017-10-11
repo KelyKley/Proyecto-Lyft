@@ -13,33 +13,60 @@ import {
   Col,
   Row,
   InputGroup,
-  FormControl
+  FormControl,
+  Dropdown,
+  MenuItem
 } from "react-bootstrap";
 import "./Home.css";
 
-class Login extends Component {
+class Header extends Component {
+  render() {
+    return (
+      <div>
+        <Grid>
+          <Row className="text-center head">
+            <Col xs={12} md={12}>
+              <Row>
+                <Col xs={2} md={2} className="back">
+                  <NavLink to={"/home"}>
+                    <i className="fa fa-angle-left fa-3x" aria-hidden="true" />
+                  </NavLink>
+                </Col>
+                <Col xs={8} md={8}>
+                  <h1>Login</h1>
+                  <h5 className="text-center">Get a ride in minutes</h5>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Grid>
+      </div>
+    );
+  }
+}
+
+class LoginPhone extends Component {
   constructor(props) {
     super(props);
+    this.flag = [
+      "https://alianzapacifico.net/wp-content/uploads/2015/03/2000px-Flag_of_Peru_1825_-_1950.svg_.png",
+      "http://flagpedia.net/data/flags/normal/mx.png",
+      "https://as01.epimg.net/img/comunes/fotos/fichas/paises/svg/chi.svg"
+    ];
     this.id = ["Perú", "México", "Chile"];
     this.code = ["+51", "+56", "+52"];
     this.state = {
       selectValue: "Perú",
-      code: this.code[0],
+      flagDrop: this.flag[0],
+      codeDrop: this.code[0],
       phone: "",
       activeNext: false
     };
-    this.options = [{ value: "Perú" }, { value: "México" }, { value: "Chile" }];
   }
 
   render() {
-    const handleChange = e => {
-      let country = e.target.value;
-      let index = this.id.indexOf(country);
-      this.setState({
-        selectValue: e.target.value,
-        code: this.code[index]
-      });
-    };
+    const { model } = this.props;
+
     const validatePhone = e => {
       const phoneNumber = e.target.value;
       if (!isNaN(phoneNumber) && phoneNumber.length <= 9) {
@@ -51,70 +78,95 @@ class Login extends Component {
         } else {
           this.setState({ activeNext: false });
         }
+        model.userInfo.phone = this.state.codeDrop + " " + phoneNumber;
+        model.notify();
       }
     };
+    const selectionImg = (e, index) => {
+      console.log(e.target.src);
+      console.log(index);
+      this.setState({
+        flagDrop: e.target.src,
+        codeDrop: this.code[index],
+        phone: ""
+      });
+    };
+    const menuItems = this.flag.map((flag, index) => {
+      return (
+        <MenuItem eventKey={index} key={index - "1"}>
+          <img
+            onClick={e => selectionImg(e, index)}
+            className="img-responsive"
+            src={flag}
+          />{" "}
+          {this.id[index]}{" "}
+        </MenuItem>
+      );
+    });
     return (
-      <div className="container-fluid">
-        <div className="row text-center head">
-          <div className="col-xs-12 col-md-12">
-            <div className="col-xs-2 col-md-2 back">
-              <a href="javascript:window.history.back();">
-                <i className="fa fa-angle-left fa-3x" aria-hidden="true" />
-              </a>
-            </div>
-            <div className="col-xs-8 col-md-8">
-              <h1>Login</h1>
-              <h5 className="text-center">Get a ride in minutes</h5>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <section className="container">
-          <div className="Login-phone">
-            <Grid>
-              <Row className="show-grid">
-                <Col md={3}></Col>
-                <Col xs={12} md={6}>
-                  <InputGroup>
+      <div>
+        <section className="container signUp-phone text-center">
+          <InputGroup>
+            <FormControl componentClass="dropdown" className="dropdown">
+              <Dropdown id="dropdown-custom-1">
+                <Dropdown.Toggle>
+                  <img className="img-principal" src={this.state.flagDrop} />
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="menu-flags">
+                  {menuItems}
+                </Dropdown.Menu>
+              </Dropdown>
+            </FormControl>
+            <InputGroup.Addon>{this.state.codeDrop}</InputGroup.Addon>
+            <FormControl
+              type="tel"
+              value={this.state.phone}
+              placeholder={123456789}
+              onChange={validatePhone}
+            />
+          </InputGroup>
 
-                    <FormControl
-                      componentClass="select"
-                      onChange={handleChange}
-                      value={this.state.selectValue}
-                    >
-                      {this.options.map((option, index) => {
-                        return (
-                          <option key={index} value={option.value}>
-                            {" "}
-                            {option.value}{" "}
-                          </option>
-                        );
-                      })}
-                    </FormControl>
-                    
-                    <InputGroup.Addon>{this.state.code}</InputGroup.Addon>
-                    <FormControl
-                      type="tel"
-                      value={this.state.phone}
-                      placeholder={123456789}
-                      onChange={validatePhone}
-                    />
-                  </InputGroup>
-                </Col>
-                <Col md={3}></Col>
-              </Row>
-            </Grid>
-          </div>
+          <p>
+            <em>We'll send a text to verify your phone</em>
+          </p>
+          <div />
         </section>
-        {this.state.activeNext ? (
-          <NavLink to={"/lyftmap"} className="btn-next btn btn-lg btn-block btn-lyft">
+        <BtnNext flag={this.state.activeNext} />
+      </div>
+    );
+  }
+}
+
+class BtnNext extends Component {
+  render() {
+    const { flag } = this.props;
+    return (
+      <div>
+        {flag ? (
+          <NavLink
+            to={"/lyftmap"}
+            className="btn btn-lg btn-block btn-lyft btn-next"
+          >
             Next
           </NavLink>
         ) : (
-          <button className="btn-next btn btn-lg btn-block btn-lyft disabled">
+          <button className="btn btn-lg btn-block btn-lyft btn-next disabled">
             Next
           </button>
         )}
+      </div>
+    );
+  }
+}
+
+class Login extends Component {
+  render() {
+    const { model } = this.props;
+    return (
+      <div className="container-fluid">
+        <Header />
+        <hr />
+        <LoginPhone model={model} />
       </div>
     );
   }
