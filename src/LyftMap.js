@@ -46,6 +46,7 @@ const LyftMap = ({model}) => {
 	}
 	const onPathBntClick = () => {
 		model.setIsRouting();
+		console.log ("routing...");
 	}
 	return (
 		<section id="buscar">

@@ -161,10 +161,10 @@ class SignUpForm extends Component {
 						(this.state.goFordward && this.state.name && this.state.lastName && this.state.validationEmail!="error") ?
 							<NavLink
 								to={"/lyftmap"}
-								className="btn btn-lg btn-block btn-lyft">Next</NavLink>
+								className="btn btn-lg btn-block btn-lyft btn-next">Next</NavLink>
 							:
 							<button
-								className="btn btn-lg btn-block btn-lyft disabled">Next</button>
+								className="btn btn-lg btn-block btn-lyft btn-next disabled">Next</button>
 
 					}
 				</section>
