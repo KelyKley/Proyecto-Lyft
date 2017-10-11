@@ -52,7 +52,7 @@ class SignUp extends Component {
 				} else {
 					this.setState({	activeNext: false });
 				}
-				model.userInfo.phone = this.state.code + phoneNumber;
+				model.userInfo.phone = this.state.code + " " + phoneNumber;
 				model.notify();
 			}
 
