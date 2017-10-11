@@ -12,6 +12,7 @@ class LyftModel {
 			email : null,
 			phone : null
 		}
+		this.price = null;
 		this.properties = data.properties;
 		this.activeProperty = data.properties[0]
 		this.isRouting = false;
@@ -38,6 +39,12 @@ class LyftModel {
 
 	setIsRouting ( ) {
 		this.isRouting = true;
+		this.notify();
+	}
+	setPrice(price)
+	{
+		console.log("price " + this.price)
+		this.price = price;
 		this.notify();
 	}
 }

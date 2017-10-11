@@ -47,11 +47,12 @@ export default  class ReactGoogleAutocomplete extends React.Component {
 		const {onPlaceSelected, types, componentRestrictions, bounds, ...rest} = this.props;
 
 		return (
-			<div>
-				<input
-					ref="input"
-					{...rest}
-				/>
+			<div class="row">
+				<div class="col-xs-12">
+					<input type="text" class="form-control" id="destino" ref="input"
+						{...rest}
+					/>
+				</div>
 			</div>
 		);
 	}
