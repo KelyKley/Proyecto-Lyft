@@ -10,6 +10,7 @@ import ReactBootstrap from 'react-bootstrap';
 import { Button, Grid, Col, Row, InputGroup, FormControl } from 'react-bootstrap';
 
 import './SignUp.css';
+import model from './index.js';
 
 class SignUp extends Component {
 	constructor(props) {
@@ -27,6 +28,7 @@ class SignUp extends Component {
 	}
 
 	render() {
+		const {model} = this.props;
 		const handleChange = (e) => {
 			let country = e.target.value;
 			let index = this.id.indexOf(country);
@@ -47,6 +49,8 @@ class SignUp extends Component {
 				} else {
 					this.setState({	activeNext: false });
 				}
+				model.userInfo.phone = phoneNumber;
+				model.notify();
 			}
 
 		};
@@ -55,9 +59,9 @@ class SignUp extends Component {
 				<div className="row text-center head">
 					<div className="col-xs-12 col-md-12">
 					<div className="col-xs-2 col-md-2 atras">
-					<a href="javascript:window.history.back();">
-							<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
-					</a>
+					<NavLink to={"/home"}>
+						<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+					</NavLink>
 						
 					</div>
 					<div className="col-xs-8 col-md-8">
