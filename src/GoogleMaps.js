@@ -177,6 +177,9 @@ const loadMaps = (cb) => {
 	drawPath(directionsService, directionsDisplay, origin, destination) {
 		let price;
 		const {setPrice} = this.props;
+		if (this.props.model.price != null)
+			return;
+
 		console.log(this.props)
 		if(destination != "" && origin != "") {
 			directionsService.route({

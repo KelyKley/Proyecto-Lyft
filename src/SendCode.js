@@ -95,10 +95,10 @@ class SendCode extends Component {
 				this.state.activeNext ?
 					<NavLink
 						to={"/signup-form"}
-						className="btn btn-lg btn-block btn-lyft">Next</NavLink>
+						className="btn btn-lg btn-block btn-lyft btn-next">Next</NavLink>
 					:
 					<button
-						className="btn btn-lg btn-block btn-lyft disabled">Next</button>
+						className="btn btn-lg btn-block btn-lyft btn-next disabled">Next</button>
 				}
 			</div>
 		);
