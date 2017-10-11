@@ -13,6 +13,7 @@ import {
 
 const LyftMap = ({model}) => {
 	const state = {
+		price: model.price,
 		properties: model.properties,
 		activeProperty: model.activeProperty,
 		filterIsVisible: false,
@@ -21,6 +22,7 @@ const LyftMap = ({model}) => {
 		isRouting: model.isRouting
 	};
 	const {
+		price,
 		properties,
 		activeProperty,
 		filterIsVisible,
@@ -44,6 +46,10 @@ const LyftMap = ({model}) => {
 			//});
 		}
 	}
+	const setPrice = (price) =>
+	{
+		model.setPrice(price);
+	}
 	const onPathBntClick = () => {
 		model.setIsRouting();
 	}
@@ -54,6 +60,7 @@ const LyftMap = ({model}) => {
 					<div className="col-md-12 col-sm-12 col-xs-12" id="mapa">
 						<GoogleMaps
 							model = {model}
+							setPrice = {setPrice}
 							properties={properties}
 							activeProperty={activeProperty}
 							setActiveProperty={setActiveProperty}
@@ -80,6 +87,7 @@ const LyftMap = ({model}) => {
 						</div>
 					</div>
 					<div className="container pie">
+						{model.price != null ? <Price model={model}/>: ""}
 						<div className="row">
 							<div className="col-xs-12">
 								<ReactGoogleAutocomplete
@@ -105,4 +113,17 @@ const LyftMap = ({model}) => {
 	);
 }
 
+const Price = ({model}) => 
+{
+	return(
+		<div class="row" id="alerta">
+			<div class="col-xs-12">
+				<div class="alert alert-info alert-dismissable fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Precio estimado: </strong><label id="precio">{model.price}</label>
+				</div>
+			</div>
+		</div>
+	);
+}
 export default LyftMap;
