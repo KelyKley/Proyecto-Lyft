@@ -11,6 +11,7 @@ import Utils from './Utils'
 import ReactBootstrap from 'react-bootstrap';
 import { Button, Grid, Col, Row, InputGroup, FormControl , FormGroup } from 'react-bootstrap';
 import './SignUp.css';
+import model from './index.js';
 
 class SignUpForm extends Component {
 
@@ -51,6 +52,8 @@ class SignUpForm extends Component {
 					controlName: "formValidationSuccess4",
 					validationName: "success",
 				});
+				model.userInfo.name = nameValue;
+				model.notify();
 			} else {
 				this.setState({
 					name: e.target.value,
@@ -67,6 +70,8 @@ class SignUpForm extends Component {
 					controlLast: "formValidationSuccess4",
 					validationLast: "success",
 				});
+				model.userInfo.surname = lastValue;
+				model.notify();
 			} else {
 				this.setState({
 					lastName: e.target.value,
@@ -91,15 +96,17 @@ class SignUpForm extends Component {
 					validationEmail: "error",
 				});
 			}
+			model.userInfo.email = emailValue;
+			model.notify();
 		};
 		return (
 			<div className="container-fluid">
 				<div className="row text-center head">
 					<div className="col-xs-12 col-md-12">
 					<div className="col-xs-2 col-md-2 atras">
-					<a href="javascript:window.history.back();">
-							<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
-					</a>
+					<NavLink to={"/signup"}>
+						<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+					</NavLink>
 						
 					</div>
 					<div className="col-xs-8 col-md-8">
