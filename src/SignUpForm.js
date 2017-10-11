@@ -101,26 +101,29 @@ class SignUpForm extends Component {
 		};
 		return (
 			<div className="container-fluid">
-				<div className="row text-center head">
-					<div className="col-xs-12 col-md-12">
-					<div className="col-xs-2 col-md-2 atras">
-					<NavLink to={"/signup"}>
-						<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
-					</NavLink>
-						
-					</div>
-					<div className="col-xs-8 col-md-8">
-						<h1>Sign Up Form</h1>
-						<h5 className="text-center"> Join now for free ride credit</h5>
-					</div>
-					</div>
-				</div>
+				<Grid>
+				<Row className="text-center head">
+					<Col xs={12} md={12}>
+					<Row>
+						<Col xs={2} md={2} className='back'>
+							<NavLink to={"/signup"}>
+								<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+							</NavLink>
+						</Col>
+						<Col xs={8} md={8}>
+							<h1>Sign up Form</h1>
+							<h5 className="text-center"> Join now for free ride credit</h5>
+						</Col>
+					</Row>
+					</Col>
+				</Row>
+				</Grid>
 				<hr />
 				<section className="container-fluid form">
 				<form>
 				<Grid>
 					<Row>
-						<Col xs={6}>
+						<Col md={12} xs={12}>
 							<FormGroup controlId={this.state.controlName} validationState={this.state.validationName}>
 								<InputGroup>
 									<InputGroup.Addon><i className="fa fa-user" aria-hidden="true"></i></InputGroup.Addon>
@@ -129,7 +132,7 @@ class SignUpForm extends Component {
 								<FormControl.Feedback />
 							</FormGroup>
 						</Col>
-						<Col xs={6}>
+						<Col md={12} xs={12}>
 							<FormGroup controlId={this.state.controlLast} validationState={this.state.validationLast}>
 								<InputGroup>
 									<InputGroup.Addon><i className="fa fa-user" aria-hidden="true"></i></InputGroup.Addon>
@@ -138,9 +141,7 @@ class SignUpForm extends Component {
 								<FormControl.Feedback />
 							</FormGroup>
 						</Col>
-					</Row>
-					<Row>
-						<Col xs={12}>
+						<Col md={12} xs={12}>
 							<FormGroup controlId={this.state.controlEmavalidationEmail} validationState={this.state.validationEmail}>
 								<InputGroup>
 									<InputGroup.Addon><i className="fa fa-envelope" aria-hidden="true" /></InputGroup.Addon>
@@ -150,15 +151,12 @@ class SignUpForm extends Component {
 							</FormGroup>
 						</Col>
 					</Row>
-				</Grid>
-				</form>
-
-
 					<label className="form-check-label">
 						<input className="form-check-input" id="agreeUser" type="checkbox" onChange={onInputChange}/>
 						I agree to Lyft's <a href="lyft.com"> Terms of Service</a>
 					</label>
-
+				</Grid>
+				</form>
 					{
 						(this.state.goFordward && this.state.name && this.state.lastName && this.state.validationEmail!="error") ?
 							<NavLink
@@ -169,7 +167,6 @@ class SignUpForm extends Component {
 								className="btn btn-lg btn-block btn-lyft disabled">Next</button>
 
 					}
-
 				</section>
 			</div>
 
