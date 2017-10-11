@@ -40,3 +40,31 @@ a{
   font-size: 180%;
   
 }
+
+.img-principal{
+  width: 30px;
+}
+
+.menu-flags{
+  width: 60px;
+}
+
+.img-flg{
+  width: 20px !important;
+}
+
+.dropdown{
+  padding: 0;
+}
+
+.dropdown-menu {
+  min-width: 150px;
+}
+
+#dropdown-custom-1{
+  margin: 0;
+}
+
+.dropdown-menu>li>a {
+  width: 100px;
+}
