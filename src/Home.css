@@ -1,6 +1,6 @@
 /*Seccion inicio*/
 
-#portada {
+#cover-page {
     height: 100vh;
     background-image: url(./portada1.jpg);
     background-attachment: fixed;
@@ -10,7 +10,7 @@
 }
 
 @media  (max-width:1024px){
-    #portada{
+    #cover-page{
         background-image: url(./fondo2.jpg);
         background-attachment: fixed;
         background-size: cover;
@@ -20,7 +20,7 @@
 }
 @media (min-width:511px) and (max-width: 844px){
 
-    #portada{
+    #cover-page{
         background-image: url(./fondo3.jpg);
         background-attachment: fixed;
         background-size: cover;
@@ -31,7 +31,7 @@
 }
 @media (min-width:300px) and (max-width: 510px){
 
-    #portada{
+    #cover-page{
         background-image: url(./fondo1.png);
         background-attachment: fixed;
         background-size: cover;
@@ -41,13 +41,19 @@
   
 }
 
-
 h1 {
     font-size: 36px;
     text-align: center;
     padding-top: 78px;
 }
 
+.button-initial {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+}
+
+/*Seccion Login*/
 
 #registro h1 {
     font-size: 36px;
@@ -55,33 +61,7 @@ h1 {
     padding-top: 10px;
 }
 
-.botones {
-    width: 100%;
-    position: absolute;
-    bottom: 30px;
-}
-
-.btn1,
-.btn2 {
-    margin: auto;
-    width: 90%;
-    color: white;
-    text-align: center;
-    padding: 5%;
-    border-radius: 10px;
-    font-size: 25px;
-    background-color: transparent;
-    border: 3px solid white;
-}
-
-.btn2:hover {
-    border: 3px solid gray;
-    color: gray;
-}
-
-
-
-.atras {
+.behind {
     padding-top: 1.6em;
     font-size: 20px;
     padding-left: 0;
@@ -91,78 +71,15 @@ a {
     text-decoration: none;
 }
 
-#registro a {
-    display: block;
-}
-
-#registro {
-    font-size: 36px;
-    text-align: center;
-    padding-top: 5px;
-}
-
-#registro a:hver {
-    background: #E54E79;
-    color: white;
-    text-decoration: none;
-}
-
-.siguiente:hover {
-    color: #e1dada;
-}
-
-.check {
-    display: flex;
-    justify-content: center;
-}
-
-.phone-number{
-    font-size: 18px;
-}
-
-.nput-group .form-control, .iput-group-addon, .inut-group-btn {
-    display: table-cell;
-}
-
-.input-group .form-control {
-    position: relative;
-    z-index: 2;
-    float: left;
-    width: 100%;
-    margin-bottom: 0;
-}
-.form-control {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
+.Login-phone{
+    margin-bottom: 50px;
+  }
 
 * {
     margin: 0;
     padding: 0;
 }
 
-.next {
-    width: 100%;
-    position: absolute;
-    left: 0px;
-   /* bottom: 0px;*/
-    /* color: white; */
-    font-weight: bold;
-    /* padding: 12px 0; */
-    /* background: #ff00bf; */
-    /* border: 1px solid #e1dada; */
+.dropdown{
+    text-align: center;
 }
