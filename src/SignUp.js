@@ -45,6 +45,7 @@ class SignUpPhone extends Component {
 			codeDrop: this.code[0],
 			phone: "",
 			activeNext: false,
+			
 		}
 	}
 	

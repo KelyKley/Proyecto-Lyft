@@ -15,7 +15,7 @@ const loadMaps = (cb) => {
  class GoogleMaps extends React.Component {
 	constructor(props) {
 		super(props);
-
+		console.log(this.props.model);
 		this.state = {
 			markers: []
 		};
@@ -70,7 +70,7 @@ const loadMaps = (cb) => {
 						//lyft.origin=results[0]['formatted_address'];
 
 						this.sourceMarker.iw.setContent ('<div><strong>'+ results[0]['formatted_address'] +'</strong><br>')
-
+						console.log("ubicacion: " + results[0]['formatted_address'])		
 						this.sourceMarker.iw.open( this.map, this.sourceMarker);
 
 						//lyft.detailOrigin.setContent('<div><strong>'+lyft.origin+'</strong><br>');
@@ -99,7 +99,7 @@ const loadMaps = (cb) => {
 		// If the place has a geometry, then present it on a map.
 		if (place.geometry.viewport) {
 			this.map.fitBounds(place.geometry.viewport);
-		} else {
+		} else {	
 			this.map.setCenter(place.geometry.location);
 			this.map.setZoom(17);
 		}
@@ -175,6 +175,9 @@ const loadMaps = (cb) => {
 	}
 
 	drawPath(directionsService, directionsDisplay, origin, destination) {
+		let price;
+		const {setPrice} = this.props;
+		console.log(this.props)
 		if(destination != "" && origin != "") {
 			directionsService.route({
 					origin: origin,
@@ -184,6 +187,8 @@ const loadMaps = (cb) => {
 				function(response, status) {
 					if (status === "OK") {
 						directionsDisplay.setDirections(response);
+						price = response.routes[0].overview_path.length / 10  + "USD";
+						setPrice(price);
 					} else {
 						alert("No ingresaste un origen y un destino validos");
 					}
