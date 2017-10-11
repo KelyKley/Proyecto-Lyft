@@ -6,19 +6,6 @@ import ReactBootstrap from 'react-bootstrap';
 import { Grid, Col, Row, InputGroup, FormControl ,Dropdown, MenuItem} from 'react-bootstrap';
 import './SignUp.css';
 
-class SignUp extends Component{
-	render () {
-		const {model} = this.props;
-		return(
-			<div className="container-fluid">
-				<Header/>
-				<hr/>
-				<SignUpPhone model={model}/>
-			</div>
-		);
-	};
-}
-
 class Header extends Component{
 	render() {
 		return (
@@ -92,7 +79,7 @@ class SignUpPhone extends Component {
 			return (
 				<MenuItem  eventKey={index} key={index-'1'}><img onClick={(e)=>selectionImg(e,index)} className="img-responsive" src={flag} /> {this.id[index]} </MenuItem>
 				);
-		});
+			});
 		return (
 			<div>
 				<section className="container signUp-phone text-center">
@@ -133,14 +120,27 @@ class BtnNext extends Component {
 		return (
 			<div>
 				{
-					flag ?
-						<NavLink
-							to={"/send-code"}
-							className="btn btn-lg btn-block btn-lyft">Next</NavLink>
-						:
-						<button
-							className="btn btn-lg btn-block btn-lyft disabled">Next</button>
+				flag ?
+					<NavLink
+						to={"/send-code"}
+						className="btn btn-lg btn-block btn-lyft btn-next">Next</NavLink>
+					:
+					<button
+						className="btn btn-lg btn-block btn-lyft btn-next disabled">Next</button>
 				}
+			</div>
+		);
+	};
+}
+
+class SignUp extends Component{
+	render () {
+		const {model} = this.props;
+		return(
+			<div className="container-fluid">
+				<Header/>
+				<hr/>
+				<SignUpPhone model={model}/>
 			</div>
 		);
 	};
