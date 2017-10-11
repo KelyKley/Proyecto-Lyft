@@ -57,7 +57,7 @@ class Login extends Component {
       <div className="container-fluid">
         <div className="row text-center head">
           <div className="col-xs-12 col-md-12">
-            <div className="col-xs-2 col-md-2 behind">
+            <div className="col-xs-2 col-md-2 back">
               <a href="javascript:window.history.back();">
                 <i className="fa fa-angle-left fa-3x" aria-hidden="true" />
               </a>
