@@ -11,5 +11,5 @@ const render = () => {
 }
 model.subscribe(render);
 render();
-
+export default model;
 registerServiceWorker();
