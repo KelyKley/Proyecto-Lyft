@@ -79,11 +79,14 @@ class SendCode extends Component {
 				</Grid>
 				<hr/>
 				<section className="container text-center signUp-phone">
-					<h4>Code: </h4>
-					<h5>LAB - {this.state.codeNumber}</h5>
+					<div className="code-phone">
+						<b>Code: LAB - {this.state.codeNumber}</b>
+						<Button bsStyle="info" onClick={newCode}>Resend Code</Button><br/>
+					</div>
 					<div>
-						<button onClick={newCode}>Resend Code</button><br/>
-						LAB - <input type="text" value={this.state.code} onChange={validateCode}/>
+						<div className="code">
+							<b>LAB - </b><input type="text" className="input-code" value={this.state.code} onChange={validateCode}/>
+						</div>
 						<p><em>Enter the code sent to {model.userInfo.phone}</em></p>
 						<p>{this.state.message}</p>
 					</div>
