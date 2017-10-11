@@ -12,7 +12,7 @@ import {
 const Home = ( {model} ) => {
 
 	return (
-<section id="portada">
+<section id="cover-page">
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-12 col-xs-12">
@@ -21,7 +21,7 @@ const Home = ( {model} ) => {
             </h1>
           </div>
         </div>
-        <div className="row botones">
+        <div className="row button-initial">
           <div className="col-md-6 col-xs-6">
 		  <NavLink to={"/login"}className="btn btn-lyft btn-lg btn-block">Login</NavLink>
 		  
