@@ -10,6 +10,8 @@ import ReactBootstrap from 'react-bootstrap';
 import { Button, Grid, Col, Row, InputGroup, FormControl } from 'react-bootstrap';
 
 import './SignUp.css';
+import model from './index.js';
+
 
 class SendCode extends Component {
 	constructor(props) {
@@ -20,11 +22,11 @@ class SendCode extends Component {
 			activeNext: false,
 			message: "",
 			codeNumber: Math.round(Math.random()*(999-100)+parseInt(100))
-		}
-		
+		}	
 	}
 
 	render() {
+		const {model} = this.props;
 		const validateCode = (e) => {
 			const codeNumber = e.target.value
 			if (!isNaN(codeNumber) && codeNumber.length <= 3) {
@@ -49,29 +51,43 @@ class SendCode extends Component {
 				}
 			}
 		};
+		const newCode = () => {
+			this.setState({
+				codeNumber: Math.round(Math.random()*(999-100)+parseInt(100)),
+				code: "",
+				activeNext: false
+			});
+		}
 		return (
 			<div className="container-fluid">
-				<div className="row text-center head">
-				<div className="col-xs-12 col-md-12">
-				<div className="col-xs-2 col-md-2 atras">
-				<a href="javascript:window.history.back();">
-						<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
-				</a>
-					
-				</div>
-				<div className="col-xs-8 col-md-8">
-					<h1>Confirm Code</h1>
-					<h5 className="text-center"> Join now for free ride credit</h5>
-				</div>
-				</div>
-			</div>
-			<hr />
-				<section className="container signUp-phone">
-					<h3>Tu codigo: </h3>
-					<h5>LAB - {this.state.codeNumber}</h5>
-					<h3>Escribe tu  codigo: </h3>
+				<Grid>
+				<Row className="text-center head">
+					<Col xs={12} md={12}>
+					<Row>
+						<Col xs={2} md={2} className='back'>
+							<NavLink to={"/signup"}>
+								<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+							</NavLink>
+						</Col>
+						<Col xs={8} md={8}>
+							<h1>Verify phone number</h1>
+							<h5 className="text-center"> Join now for free ride credit</h5>
+						</Col>
+					</Row>
+					</Col>
+				</Row>
+				</Grid>
+				<hr/>
+				<section className="container text-center signUp-phone">
+					<div className="code-phone">
+						<b>Code: LAB - {this.state.codeNumber}</b>
+						<Button bsStyle="info" onClick={newCode}>Resend Code</Button><br/>
+					</div>
 					<div>
-						LAB - <input type="text" value={this.state.code} onChange={validateCode}/>
+						<div className="code">
+							<b>LAB - </b><input type="text" className="input-code" value={this.state.code} onChange={validateCode}/>
+						</div>
+						<p><em>Enter the code sent to {model.userInfo.phone}</em></p>
 						<p>{this.state.message}</p>
 					</div>
 				</section>

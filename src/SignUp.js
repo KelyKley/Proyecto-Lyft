@@ -10,6 +10,7 @@ import ReactBootstrap from 'react-bootstrap';
 import { Button, Grid, Col, Row, InputGroup, FormControl } from 'react-bootstrap';
 
 import './SignUp.css';
+import model from './index.js';
 
 class SignUp extends Component {
 	constructor(props) {
@@ -27,14 +28,18 @@ class SignUp extends Component {
 	}
 
 	render() {
+		const {model} = this.props;
 		const handleChange = (e) => {
+			model.notify();
 			let country = e.target.value;
 			let index = this.id.indexOf(country);
 			this.setState({
 				selectValue: e.target.value,
 				flag: this.flag[index],
 				code: this.code[index],
+				phone: ""
 			});
+			console.log(this.state.code);
 		};
 		const validatePhone = (e) => {
 			const phoneNumber = e.target.value
@@ -47,27 +52,33 @@ class SignUp extends Component {
 				} else {
 					this.setState({	activeNext: false });
 				}
+				model.userInfo.phone = this.state.code + " " + phoneNumber;
+				model.notify();
 			}
 
 		};
 		return (
 			<div className="container-fluid">
-				<div className="row text-center head">
-					<div className="col-xs-12 col-md-12">
-					<div className="col-xs-2 col-md-2 atras">
-					<a href="javascript:window.history.back();">
-							<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
-					</a>
-						
-					</div>
-					<div className="col-xs-8 col-md-8">
-						<h1>Sign up</h1>
-						<h5 className="text-center"> Join now for free ride credit</h5>
-					</div>
-					</div>
-				</div>
-				<hr />
-				<section className="container signUp-phone">
+				<Grid>
+				<Row className="text-center head">
+					<Col xs={12} md={12}>
+					<Row>
+						<Col xs={2} md={2} className='back'>
+							<NavLink to={"/home"}>
+								<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+							</NavLink>
+						</Col>
+						<Col xs={8} md={8}>
+							<h1>Sign up</h1>
+							<h5 className="text-center"> Join now for free ride credit</h5>
+						</Col>
+					</Row>
+					</Col>
+				</Row>
+				</Grid>
+				<hr/>
+				<section className="container signUp-phone text-center">
+					<p><em>Get riding within minutes</em></p>
 					<Grid>
 						<Row className="show-grid">
 							<Col xs={3} md={2}>
@@ -88,6 +99,7 @@ class SignUp extends Component {
 							</Col>
 						</Row>
 					</Grid>
+					<p><em>We'll send a text to verify your phone</em></p>
 				</section>
 				{
 				this.state.activeNext ?

@@ -15,3 +15,28 @@
   text-align: center;
   padding-top: 10px;
 }
+
+a{
+  width: 50px;
+}
+
+.code-phone{
+  background-color: rgba(245, 229, 87, 0.74);
+  padding: 10px;
+  border-radius: 15px;
+  width: 70%;
+  margin: 1em auto 3em;
+}
+
+.input-code{
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+  width: 20%;
+  text-align: center;
+}
+
+.code{
+  font-size: 180%;
+  
+}
