@@ -83,3 +83,14 @@ a {
 .dropdown{
     text-align: center;
 }
+
+.btn-next {
+    background-color: #D90472;
+    border-radius: none;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    color: white;
+    font-weight: bold;
+    padding: 12px 0;
+}
