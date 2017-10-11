@@ -11,6 +11,7 @@ import { Button, Grid, Col, Row, InputGroup, FormControl } from 'react-bootstrap
 
 import './SignUp.css';
 
+
 class SendCode extends Component {
 	constructor(props) {
 		super(props);
@@ -20,8 +21,7 @@ class SendCode extends Component {
 			activeNext: false,
 			message: "",
 			codeNumber: Math.round(Math.random()*(999-100)+parseInt(100))
-		}
-		
+		}	
 	}
 
 	render() {
@@ -54,9 +54,9 @@ class SendCode extends Component {
 				<div className="row text-center head">
 				<div className="col-xs-12 col-md-12">
 				<div className="col-xs-2 col-md-2 atras">
-				<a href="javascript:window.history.back();">
-						<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
-				</a>
+				<NavLink to={"/signup"}>
+					<i className="fa fa-angle-left fa-3x" aria-hidden="true"/>
+				</NavLink>
 					
 				</div>
 				<div className="col-xs-8 col-md-8">
