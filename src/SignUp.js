@@ -22,6 +22,7 @@ class Header extends Component{
 						<Col xs={8} md={8}>
 							<h1>Sign up</h1>
 							<h5 className="text-center"> Join now for free ride credit</h5>
+					
 						</Col>
 					</Row>
 					</Col>

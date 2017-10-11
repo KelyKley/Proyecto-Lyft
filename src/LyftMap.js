@@ -11,6 +11,8 @@ import {
 	Redirect
 } from 'react-router-dom'
 
+import model from './index.js';
+
 const LyftMap = ({model}) => {
 	const state = {
 		properties: model.properties,
@@ -104,5 +106,11 @@ const LyftMap = ({model}) => {
 		</section>
 	);
 }
-
+// Datos del usuario
+{/* <div>
+	<p><b>Nombre: </b> {model.userInfo.name} </p>
+	<p><b>surnamee: </b> {model.userInfo.surname} </p>
+	<p><b>phone: </b> {model.userInfo.phone} </p>
+	<p><b>email: </b> {model.userInfo.email} </p>
+</div> */}
 export default LyftMap;
